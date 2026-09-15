@@ -1,0 +1,33 @@
+/* Стили только для «телефонного» PDF (передаются как globalCss). */
+.markdown-preview.markdown-preview { font-size: 14px; line-height: 1.45; padding: 0 !important; }
+.markdown-preview.markdown-preview h1 { font-size: 1.5em; }
+.markdown-preview.markdown-preview h2 { font-size: 1.3em; }
+.markdown-preview.markdown-preview h3 { font-size: 1.12em; }
+/* Формулы: чуть меньше и без обрезки по краю. */
+.markdown-preview.markdown-preview .katex-display { font-size: 0.92em; margin: 0.6em 0; overflow-x: hidden; }
+.markdown-preview.markdown-preview .katex-display > .katex { white-space: normal; }
+/* Псевдокод и код: переносить строки вместо обрезки. */
+.markdown-preview.markdown-preview pre,
+.markdown-preview.markdown-preview pre code { white-space: pre-wrap !important; word-break: break-word; overflow-wrap: anywhere; font-size: 0.85em; }
+.markdown-preview.markdown-preview table { font-size: 0.85em; }
+.markdown-preview.markdown-preview img { max-width: 100%; }
+/* Только диаграммы: у SVG внутри KaTeX (скобки, underbrace) высота должна остаться явной. */
+.markdown-preview.markdown-preview .mermaid svg { max-width: 100% !important; height: auto; }
+.markdown-preview.markdown-preview blockquote { font-size: 0.92em; }
+/* Не рвать блоки на границе страниц, где это возможно. */
+.markdown-preview.markdown-preview pre,
+.markdown-preview.markdown-preview .admonition,
+.markdown-preview.markdown-preview .katex-display,
+.markdown-preview.markdown-preview .mermaid { page-break-inside: avoid; }
+.markdown-preview.markdown-preview h1,
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3 { page-break-after: avoid; }
+/* Таблицы: не вылезать за край страницы. */
+.markdown-preview.markdown-preview table { max-width: 100%; }
+.markdown-preview.markdown-preview td,
+.markdown-preview.markdown-preview th { word-break: break-word; overflow-wrap: anywhere; padding: 4px 6px; }
+/* Инлайн-код (пути к файлам и т.п.) переносить, чтобы он не расширял документ. */
+.markdown-preview.markdown-preview code { white-space: pre-wrap; overflow-wrap: anywhere; }
+html, body, .markdown-preview.markdown-preview { overflow-x: hidden; }
+/* Без атрибута for="html-export" у body остаётся штатный отступ 8px; печатаем без него. */
+body { margin: 0; }
